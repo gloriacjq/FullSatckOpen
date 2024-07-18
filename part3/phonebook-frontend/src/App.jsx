@@ -64,6 +64,12 @@ const App = () => {
           setErrorFlag(false)
           showNotification(message)
         })
+        .catch(error => {
+          console.log(error.response.data.error)
+          const message = error.response.data.error
+          setErrorFlag(true)
+          showNotification(message)
+        })
     }
     setNewName('')
     setNewNumber('')
@@ -83,10 +89,15 @@ const App = () => {
           showNotification(message)
         })
         .catch(error => {
-          const message =  `Information of ${name} has already been removed from server`
+          console.log(error.response.data.error)
+          const message = error.response.data.error
+          // const message =  `Information of ${name} has already been removed from server`
           setErrorFlag(true)
           showNotification(message)
         })
+
+      setNewName('')
+      setNewNumber('')
     }
   }
 
