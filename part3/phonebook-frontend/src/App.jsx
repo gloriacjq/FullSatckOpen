@@ -72,17 +72,18 @@ const App = () => {
   const updatePerson = (id) => {
     const person = persons.find(p => p.id === id)
     const changedPerson = { ...person, number: newNumber}
-    if (window.confirm(`${person.name} is already added to phonebook, replace the old number with a new one?`)) {
+    const name = person.name
+    if (window.confirm(`${name} is already added to phonebook, replace the old number with a new one?`)) {
       personService
         .update(person.id, changedPerson)
         .then(returnedPerson => {
           setPersons(persons.map(p => p.id !== id? p : returnedPerson))
-          const message = `Changed the number of ${person.name}`
+          const message = `Changed the number of ${name}`
           setErrorFlag(false)
           showNotification(message)
         })
         .catch(error => {
-          const message =  `Information of ${person.name} has already been removed from server`
+          const message =  `Information of ${name} has already been removed from server`
           setErrorFlag(true)
           showNotification(message)
         })
