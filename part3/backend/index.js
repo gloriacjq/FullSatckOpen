@@ -18,11 +18,11 @@ morgan.token('data', function getData (req) {
 })
 
 app.use(morgan('tiny', {
-  skip: function (req, res) { return req.method == 'POST'}
+  skip: function (req, ) { return req.method === 'POST'}
 }))
 
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :data', {
-  skip: function (req, res) {return req.method != 'POST'}
+  skip: function (req, ) {return req.method !== 'POST'}
 }))
 
 // Error handler
@@ -63,15 +63,15 @@ app.get('/api/persons/:id', (request, response, next) => {
 app.get('/api/info', (request, response) => {
   Person.countDocuments({}).then(count => {
     // console.log('there are %d count', count);
-    res = `<p>Phonebook has info for ${count} people</p> <p>${new Date()}</p>`
+    const res = `<p>Phonebook has info for ${count} people</p> <p>${new Date()}</p>`
     response.send(res)
   })
-  
+
 })
 
 app.delete('/api/persons/:id', (request, response, next) => {
   Person.findByIdAndDelete(request.params.id)
-    .then(result => {
+    .then(() => {
       response.status(204).end()
     })
     .catch(error => next(error))
@@ -97,8 +97,8 @@ app.put('/api/persons/:id', (request, response, next) => {
   const { name, number } = request.body
 
   Person.findByIdAndUpdate(
-    request.params.id, 
-    { name, number }, 
+    request.params.id,
+    { name, number },
     { new: true, runValidators: true, context: 'query' })
     .then(updatedPerson => {
       response.json(updatedPerson)

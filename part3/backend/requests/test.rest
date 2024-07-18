@@ -1,6 +1,9 @@
 GET http://localhost:3001/api/persons
 
 ###
+GET http://localhost:3001/api/info
+
+###
 DELETE http://localhost:3001/api/persons/id3
 
 ###
@@ -15,12 +18,13 @@ content-type: application/json
 ###
 GET http://localhost:3001/api/persons/id3
 
+
 ###
 PUT http://localhost:3001/api/persons/id3 HTTP/1.1
 content-type: application/json
 
 {
-    "name": "hello",
-    "number": "9999"
+    "name": "helloo",
+    "number": "12-22222222"
 }
 
