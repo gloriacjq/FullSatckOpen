@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const mongoose = require('mongoose')
+require('express-async-errors') // introduce this before import routes
 const blogsRouter = require('./controllers/blogs')
 const logger = require('./utils/logger')
 const config = require('./utils/config')

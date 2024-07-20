@@ -4,29 +4,31 @@ GET http://localhost:3003/api/blogs
 GET http://localhost:3003/api/info
 
 ###
-DELETE http://localhost:3003/api/blogs/id3
+DELETE http://localhost:3003/api/blogs/:id
 
 ###
 POST http://localhost:3003/api/blogs HTTP/1.1
 content-type: application/json
 
 {
-    "title": "title5",
-    "author": "author5",
-    "url": "url-test5",
-    "likes": 3
+    "title": "title6",
+    "author": "author6",
+    "url": "url-test6",
+    "likes": 7
 }
 
 ###
-GET http://localhost:3003/api/blogs/id3
+GET http://localhost:3003/api/blogs/:id
 
 
 ###
-PUT http://localhost:3003/api/blogs/id3 HTTP/1.1
+PUT http://localhost:3003/api/blogs/:id HTTP/1.1
 content-type: application/json
 
 {
-    "name": "helloo",
-    "number": "12-22222222"
+  "title": "title5",
+  "author": "author5",
+  "url": "url-test5-updated",
+  "likes": 9
 }
 
