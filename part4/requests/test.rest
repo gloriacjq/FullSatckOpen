@@ -4,7 +4,8 @@ GET http://localhost:3003/api/blogs
 GET http://localhost:3003/api/info
 
 ###
-DELETE http://localhost:3003/api/blogs/:id
+DELETE http://localhost:3003/api/blogs/669d1b7db83a02c3b037d4a1
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWQiOiI2NjljMTdmMzIyYTQ5MmU1ZTE4MmY5ZmQiLCJpYXQiOjE3MjE1NzIxODAsImV4cCI6MTcyMTU3NTc4MH0.XCk7BWe6viKrmogNp-u2Jt6gs9brPoUKpYga2e-P2Rw
 
 ###
 POST http://localhost:3003/api/blogs HTTP/1.1
@@ -32,3 +33,66 @@ content-type: application/json
   "likes": 9
 }
 
+
+###
+POST http://localhost:3003/api/users HTTP/1.1
+content-type: application/json
+
+{
+    "username": "admin",
+    "name": "gloria",
+    "password": "fullstack"
+}
+
+###
+POST http://localhost:3003/api/users HTTP/1.1
+content-type: application/json
+
+{
+    "username": "root",
+    "name": "Superuser",
+    "password": "salainen"
+}
+
+###
+POST http://localhost:3003/api/login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "root",
+    "password": "salainen"
+}
+
+###
+POST http://localhost:3003/api/blogs HTTP/1.1
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWQiOiI2NjljMTdmMzIyYTQ5MmU1ZTE4MmY5ZmQiLCJpYXQiOjE3MjE1NzIxODAsImV4cCI6MTcyMTU3NTc4MH0.XCk7BWe6viKrmogNp-u2Jt6gs9brPoUKpYga2e-P2Rw
+
+{
+    "title": "title10",
+    "author": "author9",
+    "url": "url-test",
+    "likes": 8
+}
+
+###
+GET http://localhost:3003/api/users
+
+###
+POST http://localhost:3003/api/users HTTP/1.1
+content-type: application/json
+
+{
+    "username": "wrs",
+    "name": "test",
+    "password": "f"
+}
+
+###
+POST http://localhost:3003/api/login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "admin",
+    "password": "fullstack"
+}
