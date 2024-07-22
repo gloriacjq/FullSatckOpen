@@ -5,7 +5,7 @@ const Blog = ({ blog, user, likeBlog, deleteBlog }) => {
 
   const hideWhenVisible = { display: visible ? 'none' : '' }
   const showWhenVisible = { display: visible ? '' : 'none' }
-  const showWhenOwned = { display: blog.user && user && blog.user.username === user.username ? '' : 'none' }
+  const showWhenOwned = { display: blog.user?.username === user?.username ? '' : 'none' }
 
   const toggleVisibility = () => {
     setVisible(!visible)
@@ -40,7 +40,7 @@ const Blog = ({ blog, user, likeBlog, deleteBlog }) => {
           likes {blog.likes}
           <button onClick={addLike}>like</button> <br/>
         </div>
-        {blog.user.name} <br/>
+        {blog.user?.name} <br/>
         <button onClick={() => deleteBlog(blog)} style={showWhenOwned}>remove</button>
       </div>
     </div>
