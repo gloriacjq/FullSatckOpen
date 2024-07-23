@@ -7,18 +7,18 @@ const notificationSlice = createSlice({
     setNotification(state, action) {
       return action.payload;
     },
-    clearNotification(state, action) {
+    clearNotification() {
       return null;
     }
   }
 })
 
-export const showNotification = (message) => {
+export const showNotification = (message, duration) => {
   return dispatch => {
     dispatch(setNotification(message));
     setTimeout(() => {
       dispatch(clearNotification());
-    }, 5000);
+    }, duration * 1000);
   };
 };
 
